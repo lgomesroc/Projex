@@ -1,0 +1,32 @@
+# Dependencies / Dependências
+node_modules/
+
+# Build output / Compilação
+dist/
+build/
+
+# Logs / Logs
+logs/
+*.log
+
+# Operating system files / Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDEs and editors / IDEs e editores
+.idea/
+*.iml
+
+# Environment variables / Variáveis de ambiente
+.env
+
+# Test coverage / Cobertura de testes
+coverage/
+
+# Temporary files / Arquivos temporários
+tmp/
+*.tmp
+*.swp
+
+# Other / Outros
+yarn.lock

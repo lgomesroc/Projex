@@ -1,0 +1,25 @@
+openapi: 3.0.0
+info:
+  title: Projex API
+  version: 1.0.0
+  description: API para o sistema Projex
+servers:
+  - url: http://localhost:3001
+paths:
+  /api/tasks:
+    get:
+      summary: Retrieve tasks
+      responses:
+        '200':
+          description: A list of tasks
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
