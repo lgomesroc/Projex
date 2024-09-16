@@ -1,0 +1,60 @@
+/* Estilos globais */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos responsivos */
+  
+  /* Dispositivos móveis (até 600px de largura) */
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 24px;
+    }
+  
+    button {
+      width: 100%;
+      padding: 12px;
+    }
+  }
+  
+  /* Tablets (entre 601px e 1024px de largura) */
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+      font-size: 28px;
+    }
+  
+    button {
+      padding: 14px;
+    }
+  }
+  
+  /* Dispositivos grandes (mais de 1024px de largura) */
+  @media only screen and (min-width: 1025px) {
+    h1 {
+      font-size: 32px;
+    }
+  
+    button {
+      padding: 16px;
+    }
+  }
+  
