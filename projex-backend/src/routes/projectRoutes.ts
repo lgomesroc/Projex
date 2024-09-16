@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import ProjectController from '../controllers/ProjectController'; // Corrigido para importar a instância padrão
-import authMiddleware from '../middleware/authMiddleware'; // Corrigido para importar o middleware padrão
+import ProjectController from '../controllers/ProjectController'; 
+import authMiddleware from '../middleware/authMiddleware';
 
 const router = Router();
 

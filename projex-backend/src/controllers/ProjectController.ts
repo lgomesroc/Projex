@@ -6,7 +6,7 @@ import { User } from '../models/User';
 class ProjectController {
   async createProject(req: Request, res: Response): Promise<Response> {
     const { name, description, userId } = req.body;
-    
+
     const projectRepository = AppDataSource.getRepository(Project);
     const userRepository = AppDataSource.getRepository(User);
 
@@ -31,7 +31,10 @@ class ProjectController {
   async getProject(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
     const projectRepository = AppDataSource.getRepository(Project);
-    const project = await projectRepository.findOne({ where: { id: parseInt(id) }, relations: ['user'] });
+    const project = await projectRepository.findOne({
+      where: { id: parseInt(id) },
+      relations: ['user'],
+    });
 
     if (!project) {
       return res.status(404).json({ message: 'Projeto não encontrado!' });

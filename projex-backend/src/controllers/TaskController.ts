@@ -4,9 +4,9 @@ import { Task } from '../models/Task';
 import { Project } from '../models/Project';
 
 class TaskController {
-  async createTask(req: Request, res: Response) {
+  async createTask(req: Request, res: Response): Promise<Response> {
     const { name, description, status, dueDate, projectId } = req.body;
-    
+
     const taskRepository = AppDataSource.getRepository(Task);
     const projectRepository = AppDataSource.getRepository(Project);
 
@@ -15,20 +15,26 @@ class TaskController {
       return res.status(404).json({ message: 'Projeto não encontrado!' });
     }
 
-    const newTask = taskRepository.create({ name, description, status, dueDate, project });
+    const newTask = taskRepository.create({
+      name,
+      description,
+      status,
+      dueDate,
+      project,
+    });
     await taskRepository.save(newTask);
 
     return res.status(201).json(newTask);
   }
 
-  async getTasks(req: Request, res: Response) {
+  async getTasks(req: Request, res: Response): Promise<Response> {
     const taskRepository = AppDataSource.getRepository(Task);
     const tasks = await taskRepository.find({ relations: ['project'] });
 
     return res.json(tasks);
   }
 
-  async updateTask(req: Request, res: Response) {
+  async updateTask(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
     const { name, description, status, dueDate } = req.body;
 
@@ -49,7 +55,7 @@ class TaskController {
     return res.json(task);
   }
 
-  async deleteTask(req: Request, res: Response) {
+  async deleteTask(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
 
     const taskRepository = AppDataSource.getRepository(Task);
